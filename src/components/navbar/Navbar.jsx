@@ -1,3 +1,4 @@
+"use cclients";
 import React from 'react';
 import Link from 'next/link'; // Import Link from Next.js
 
@@ -19,7 +20,7 @@ export const Navbar = () => {
             <Link href={link.path}>{link.title}</Link>
           </li>
         ))}
-      
+      <button onClick={() => console.log('Log out')}>Log Out</button>
     </div>
   );
 };
