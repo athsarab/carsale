@@ -1,26 +1,65 @@
-"use cclients";
-import React from 'react';
-import Link from 'next/link'; // Import Link from Next.js
+"use client";
+
+import Link from "next/link";
+import React from "react";
+import styles from "./navbar.module.css";
+//import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+//import { signOut, useSession } from "next-auth/react";
 
 const links = [
-  { id: 1, title: 'Home', path: '/' },
-  { id: 2, title: 'About', path: '/about' },
-  { id: 3, title: 'Blog', path: '/blog' },
-  { id: 4, title: 'Contact', path: '/contact' },
-  { id: 5, title: 'Dashboard', path: '/dashboard' },
-  { id: 6, title: 'Portfolio', path: '/portfolio' },
+  {
+    id: 1,
+    title: "Home",
+    url: "/",
+  },
+  {
+    id: 2,
+    title: "Portfolio",
+    url: "/portfolio",
+  },
+  {
+    id: 3,
+    title: "Blog",
+    url: "/blog",
+  },
+  {
+    id: 4,
+    title: "About",
+    url: "/about",
+  },
+  {
+    id: 5,
+    title: "Contact",
+    url: "/contact",
+  },
+  {
+    id: 6,
+    title: "Dashboard",
+    url: "/dashboard",
+  },
 ];
 
-export const Navbar = () => {
+const Navbar = () => {
+  //const session = useSession();
+
   return (
-    <div>
-      
+    <div className={styles.container}>
+      <Link href="/" className={styles.logo}>
+Athsara     
+ </Link>
+      <div className={styles.links}>
         {links.map((link) => (
-          <li key={link.id}>
-            <Link href={link.path}>{link.title}</Link>
-          </li>
+          <Link key={link.id} href={link.url} className={styles.link}>
+            {link.title}
+          </Link>
         ))}
-      <button onClick={() => console.log('Log out')}>Log Out</button>
+        <button className={styles.logout} onClick={() => {
+          console.log("Logout");
+        }}>
+          Logout
+        </button>
+
+      </div>
     </div>
   );
 };
