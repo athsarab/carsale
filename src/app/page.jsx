@@ -19,5 +19,5 @@ export default function Home() {
       <Image src="/hero.png" alt="hero" width={500} height={300} />
       </div>
     </div>
-  );   
+  );     
 }             
